@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🌟 YANGI SEHRLI FON (Binafsha, pushti va havo rang uyg'unligi) */
+body {
+    background: linear-gradient(135deg, #fae8ff 0%, #fce7f3 50%, #e0f2fe 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.screen {
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Karta */
+.card {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.8); /* Orqa fon biroz aniqroq qilindi */
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(219, 39, 119, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.small-title {
+    color: #be185d;
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.card h1 {
+    color: #4c1d95;
+    font-size: 26px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.card p {
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#startBtn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 50px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(90deg, #ec4899, #d946ef);
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3);
+}
+
+/* Savollar bo'limi */
+.question-box {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    min-height: 450px;
+}
+
+#question {
+    font-size: 26px;
+    color: #2e1065;
+    margin-bottom: 40px;
+}
+
+.answers {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* ⚪️ NOTO'G'RI JAVOBLAR (Oq fon, qora harflar) */
+.answer-btn {
+    width: 100%;
+    max-width: 340px;
+    padding: 16px;
+    border-radius: 20px;
+    background: #ffffff; /* Defolt oq fon */
+    color: #1f2937;      /* To'q qora/kulrang harflar */
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: background 0.2s, border 0.2s, transform 0.1s;
+}
+
+/* 🌸 TO'G'RI JAVOB (Och pushti fon va to'q qizil ramka) */
+.answer-btn.correct {
+    background: #ffebf0; /* Och pushti fon */
+    color: #be185d;      /* To'q qizil/pushti harflar */
+    border: 3px solid #db2777; /* Yaqqol ko'rinadigan ramka */
+    box-shadow: 0 4px 20px rgba(219, 39, 119, 0.3);
+}
+
+/* Chipta */
+.ticket-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.ticket-card {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f3e8ff;
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.ticket-header .badge {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #9d174d;
+    font-weight: 700;
+}
+
+.ticket-header h2 {
+    color: #9d174d;
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+.divider {
+    border: none;
+    border-top: 2px dashed #e5e7eb;
+    margin: 20px 0;
+}
+
+.ticket-body {
+    margin-bottom: 25px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 16px;
+}
+
+.info-row .label {
+    color: #9ca3af;
+    font-weight: 500;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarguzashtli Taklifnoma</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <section id="intro" class="screen active">
+        <div class="card">
+            <h3 class="small-title">Eng muhim odamdan eng muhim odamga 💌</h3>
+            <h1>Sarguzashtga boy savollar — tanlovsiz javoblar</h1>
+            <p>Bir nechta savolga javob ber... lekin ehtiyot bo'l — ba'zi tugmalar o'zingga o'xshab 😏</p>
+            <button id="startBtn">Boshladik ✨</button>
+        </div>
+    </section>
+
+    <section id="quiz" class="screen">
+        <div class="question-box">
+            <h2 id="question">Savol</h2>
+            <div id="answers" class="answers"></div>
+        </div>
+    </section>
+
+    <section id="ticket" class="screen">
+        <div class="ticket-wrapper">
+            <div id="ticketCard" class="ticket-card">
+                <div class="ticket-header">
+                    <span class="badge">IKKI KISHILIK CHIPTA</span>
+                    <h2>Bon!</h2>
+                </div>
+
+                <hr class="divider">
+
+                <div class="ticket-body">
+                    <div class="info-row">
+                        <span class="label">SANA:</span>
+                        <span class="value">Mash hafta</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">VAQT:</span>
+                        <span id="selectedTime" class="value">14:30</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">JOY:</span>
+                        <span class="value">Sayohat ko'chasi, 2</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">TAKLIFA CHIQARUVCHI:</span>
+                        <span class="value">Eng muhim odam</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">TAKLIFA QILINUVCHI:</span>
+                        <span class="value">Eng muhim odamga</span>
+                    </div>
+                </div>
+
+                <p class="ticket-footer">Sarguzasht muvaffaqiyatli yakunlandi! 💖</p>
+            </div>
+
+            <button id="downloadBtn">Chiptani yuklab olish 🎟️</button>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
