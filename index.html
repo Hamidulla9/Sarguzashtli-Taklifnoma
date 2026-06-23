@@ -27,38 +27,52 @@
 
     <section id="ticket" class="screen">
         <div class="ticket-wrapper">
-            <div id="ticketCard" class="ticket-card">
-                <div class="ticket-header">
-                    <span class="badge">IKKI KISHILIK CHIPTA</span>
-                    <h2>Bon!</h2>
+            <div id="ticketCard" class="ticket-card animate-ticket">
+
+                <div class="ticket-main">
+                    <div class="ticket-header">
+                        <span class="badge">✨ VIP PASS ✨</span>
+                        <h2>Bon!</h2>
+                    </div>
+
+                    <div class="ticket-cutout-line">
+                        <div class="cutout circle-left"></div>
+                        <hr class="dashed-line">
+                        <div class="cutout circle-right"></div>
+                    </div>
+
+                    <div class="ticket-body">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">SANA</span>
+                                <span class="value">Mash hafta</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">VAQT</span>
+                                <span id="selectedTime" class="value">14:30</span>
+                            </div>
+                        </div>
+                        <div class="info-item full-width">
+                            <span class="label">MANZIL</span>
+                            <span class="value">📍 Sayohat ko'chasi, 2</span>
+                        </div>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">KIMDAN</span>
+                                <span class="value">Eng muhim odam</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">KIMGA</span>
+                                <span class="value">Eng muhim odamga</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <hr class="divider">
-
-                <div class="ticket-body">
-                    <div class="info-row">
-                        <span class="label">SANA:</span>
-                        <span class="value">Mash hafta</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="label">VAQT:</span>
-                        <span id="selectedTime" class="value">14:30</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="label">JOY:</span>
-                        <span class="value">Sayohat ko'chasi, 2</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="label">TAKLIFA CHIQARUVCHI:</span>
-                        <span class="value">Eng muhim odam</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="label">TAKLIFA QILINUVCHI:</span>
-                        <span class="value">Eng muhim odamga</span>
-                    </div>
+                <div class="ticket-stub">
+                    <p class="stub-text">Sarguzasht muvaffaqiyatli yakunlandi! 💖</p>
+                    <div class="barcode">||||| | |||| || ||| | ||||</div>
                 </div>
-
-                <p class="ticket-footer">Sarguzasht muvaffaqiyatli yakunlandi! 💖</p>
             </div>
 
             <button id="downloadBtn">Chiptani yuklab olish 🎟️</button>

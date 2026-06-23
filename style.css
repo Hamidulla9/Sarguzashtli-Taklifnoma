@@ -5,7 +5,6 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* 🌟 YANGI SEHRLI FON (Binafsha, pushti va havo rang uyg'unligi) */
 body {
     background: linear-gradient(135deg, #fae8ff 0%, #fce7f3 50%, #e0f2fe 100%);
     min-height: 100vh;
@@ -29,7 +28,7 @@ body {
 .card {
     width: 100%;
     max-width: 450px;
-    background: rgba(255, 255, 255, 0.8); /* Orqa fon biroz aniqroq qilindi */
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(12px);
     border-radius: 25px;
     padding: 40px 30px;
@@ -95,14 +94,14 @@ button {
     width: 100%;
 }
 
-/* ⚪️ NOTO'G'RI JAVOBLAR (Oq fon, qora harflar) */
+/* Noto'g'ri javoblar */
 .answer-btn {
     width: 100%;
     max-width: 340px;
     padding: 16px;
     border-radius: 20px;
-    background: #ffffff; /* Defolt oq fon */
-    color: #1f2937;      /* To'q qora/kulrang harflar */
+    background: #ffffff;
+    color: #1f2937;
     font-size: 16px;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
@@ -110,68 +109,174 @@ button {
     transition: background 0.2s, border 0.2s, transform 0.1s;
 }
 
-/* 🌸 TO'G'RI JAVOB (Och pushti fon va to'q qizil ramka) */
+/* To'g'ri javob */
 .answer-btn.correct {
-    background: #ffebf0; /* Och pushti fon */
-    color: #be185d;      /* To'q qizil/pushti harflar */
-    border: 3px solid #db2777; /* Yaqqol ko'rinadigan ramka */
+    background: #ffebf0;
+    color: #be185d;
+    border: 3px solid #db2777;
     box-shadow: 0 4px 20px rgba(219, 39, 119, 0.3);
 }
 
-/* Chipta */
+/* Estetik Chipta Stili */
 .ticket-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
+    perspective: 1000px;
 }
 
 .ticket-card {
     width: 100%;
-    background: white;
-    padding: 30px;
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-    border: 1px solid #f3e8ff;
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(219, 39, 119, 0.15);
+    overflow: hidden;
+    border: 1px solid rgba(243, 232, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.animate-ticket {
+    animation: ticketSpawn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes ticketSpawn {
+    0% { opacity: 0; transform: translateY(40px) rotate(-3deg); }
+    100% { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+
+.ticket-main {
+    padding: 35px 30px 20px 30px;
+    background: linear-gradient(to bottom, #ffffff, #fffafd);
 }
 
 .ticket-header {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .ticket-header .badge {
     font-size: 11px;
-    letter-spacing: 2px;
-    color: #9d174d;
-    font-weight: 700;
+    letter-spacing: 3px;
+    color: #db2777;
+    font-weight: 800;
+    background: #fdf2f8;
+    padding: 6px 16px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 1px solid #fbcfe8;
 }
 
 .ticket-header h2 {
-    color: #9d174d;
-    font-size: 32px;
-    margin-top: 5px;
+    color: #4c1d95;
+    font-size: 38px;
+    margin-top: 10px;
+    font-family: 'Georgia', serif;
+    letter-spacing: 1px;
 }
 
-.divider {
+.ticket-cutout-line {
+    position: relative;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cutout {
+    width: 24px;
+    height: 24px;
+    background: #fde8f5; /* Atrofdagi gradient fonga yaqin rang */
+    border-radius: 50%;
+    position: absolute;
+    z-index: 5;
+}
+
+.circle-left { left: -42px; box-shadow: inset -5px 0 8px rgba(0,0,0,0.02); }
+.circle-right { right: -42px; box-shadow: inset 5px 0 8px rgba(0,0,0,0.02); }
+
+.dashed-line {
     border: none;
     border-top: 2px dashed #e5e7eb;
-    margin: 20px 0;
+    width: 100%;
 }
 
-.ticket-body {
-    margin-bottom: 25px;
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.info-row {
+.info-item {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 14px;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.full-width {
+    grid-column: span 2;
+    margin-bottom: 20px;
+    background: #f8fafc;
+    padding: 12px 15px;
+    border-radius: 15px;
+    border: 1px dashed #e2e8f0;
+}
+
+.info-item .label {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.info-item .value {
+    color: #1e1b4b;
+    font-weight: 700;
     font-size: 16px;
 }
 
-.info-row .label {
-    color: #9ca3af;
-    font-weight: 500;
+#selectedTime.value {
+    color: #db2777;
+}
+
+.ticket-stub {
+    background: #fdf2f8;
+    border-top: 1px solid #fbcfe8;
+    padding: 25px 30px;
+    text-align: center;
+    border-bottom: 4px solid #db2777;
+}
+
+.stub-text {
+    color: #be185d;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.barcode {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: #64748b;
+    opacity: 0.6;
+    user-select: none;
+}
+
+#downloadBtn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
 }

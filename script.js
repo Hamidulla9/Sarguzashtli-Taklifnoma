@@ -12,7 +12,7 @@ const questions = [
     {
         question: "Nechida ko'rishamiz?",
         answers: ["14:30", "13:30", "12:30"],
-        correct: -1 // -1 degani hamma javob to'g'ri, hech biri qochmaydi
+        correct: -1 // Hamma javob to'g'ri, qochmaydi
     },
     {
         question: "Kech qolganga qanaqa chora ko'ramiz?",
@@ -27,7 +27,7 @@ const questions = [
 ];
 
 let currentQuestion = 0;
-let chosenTime = "14:30"; // Default vaqt
+let chosenTime = "14:30";
 
 const intro = document.getElementById("intro");
 const quiz = document.getElementById("quiz");
@@ -51,18 +51,15 @@ function showQuestion() {
         btn.innerText = answer;
         btn.className = "answer-btn";
 
-        // Boshlang'ich joylashuv
         btn.style.position = "absolute";
         btn.style.left = "50%";
         btn.style.transform = "translateX(-50%)";
         btn.style.top = (index * 75) + "px";
 
-        // Agar maxsus to'g'ri javob bo'lsa, ramka rangini o'zgartiramiz
         if (q.correct !== -1 && q.correct === index) {
             btn.classList.add("correct");
         }
 
-        // Qochish logikasi (faqat qochishi kerak bo'lgan tugmalarga)
         if (q.correct !== -1 && index !== q.correct) {
             btn.addEventListener("mouseenter", () => moveButton(btn));
             btn.addEventListener("touchstart", (e) => {
@@ -70,10 +67,8 @@ function showQuestion() {
                 moveButton(btn);
             });
         } else {
-            // To'g'ri yoki qochmaydigan tugma bosilganda
             btn.onclick = () => {
                 if (q.correct === -1) {
-                    // 3-savolda vaqtni saqlab qolamiz
                     chosenTime = answer;
                 }
                 nextQuestion();
@@ -104,7 +99,6 @@ function nextQuestion() {
     if (currentQuestion >= questions.length) {
         quiz.classList.remove("active");
         ticket.classList.add("active");
-        // Tanlangan vaqtni chiptaga yozish
         document.getElementById("selectedTime").innerText = chosenTime;
         return;
     }
@@ -112,7 +106,6 @@ function nextQuestion() {
     showQuestion();
 }
 
-// Chiptani yuklab olish
 document.getElementById("downloadBtn").onclick = () => {
     const ticketCard = document.getElementById("ticketCard");
 
