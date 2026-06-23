@@ -1,12 +1,12 @@
 const questions = [
     {
-        question: "Mash hafta ko'rishishga nima disan?",
+        question: "Mash hafta ko'rishishga vaqtn bom?",
         answers: ["Ha, albatta san uchun hardoim bor", "Band bo'lishim mumkin", "Hmm bilmadim"],
         correct: 0
     },
     {
         question: "Qaqa boramiz?",
-        answers: ["Yana o'qishga", "Bilmasam", "Bon"],
+        answers: ["Yana o'qishga", "Bilmasam", "Bon", "The Mart", "Gietto"],
         correct: 2
     },
     {
@@ -21,7 +21,7 @@ const questions = [
     },
     {
         question: "Mash kuningni man bilan o'tkazishga rozimisan?",
-        answers: ["Albatta faqat san bilan", "Boshqa variantam yo'g'u"],
+        answers: ["Albatta, faqat san bilan", "Boshqa variantam yo'g'u"],
         correct: 0
     }
 ];
