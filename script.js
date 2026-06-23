@@ -2,38 +2,41 @@ const questions = [
     {
         question: "Mash hafta ko'rishishga nima disan?",
         answers: ["Ha, albatta san uchun hardoim bor", "Band bo'lishim mumkin", "Hmm bilmadim"],
-        correct: 0 // 1-javob to'g'ri
+        correct: 0
     },
     {
         question: "Qaqa boramiz?",
         answers: ["Yana o'qishga", "Bilmasam", "Bon"],
-        correct: 2 // 3-javob to'g'ri
+        correct: 2
     },
     {
         question: "Nechida ko'rishamiz?",
         answers: ["14:30", "13:30", "12:30"],
-        correct: -1 // Hamma javob to'g'ri, qochmaydi
+        correct: -1
     },
     {
         question: "Kech qolganga qanaqa chora ko'ramiz?",
         answers: ["Qatl qilamiz", "Sizlab sevishini etish", "Bumaga ga osamiz"],
-        correct: 1 // 2-javob to'g'ri
+        correct: 1
     },
     {
         question: "Mash kuningni man bilan o'tkazishga rozimisan?",
         answers: ["Albatta faqat san bilan", "Boshqa variantam yo'g'u"],
-        correct: 0 // 1-javob to'g'ri
+        correct: 0
     }
 ];
 
 let currentQuestion = 0;
 let chosenTime = "14:30";
+let envelopeClicks = 0;
 
 const intro = document.getElementById("intro");
 const quiz = document.getElementById("quiz");
+const envelopeScreen = document.getElementById("envelope-screen");
 const ticket = document.getElementById("ticket");
 const questionText = document.getElementById("question");
 const answersBox = document.getElementById("answers");
+const secretEnvelope = document.getElementById("secretEnvelope");
 
 document.getElementById("startBtn").onclick = () => {
     intro.classList.remove("active");
@@ -98,13 +101,29 @@ function nextQuestion() {
 
     if (currentQuestion >= questions.length) {
         quiz.classList.remove("active");
-        ticket.classList.add("active");
-        document.getElementById("selectedTime").innerText = chosenTime;
+        envelopeScreen.classList.add("active");
         return;
     }
 
     showQuestion();
 }
+
+secretEnvelope.onclick = () => {
+    envelopeClicks++;
+
+    secretEnvelope.classList.remove("shake-animation");
+    void secretEnvelope.offsetWidth;
+    secretEnvelope.classList.add("shake-animation");
+
+    if (envelopeClicks >= 3) {
+        secretEnvelope.classList.add("fade-out-envelope");
+        setTimeout(() => {
+            envelopeScreen.classList.remove("active");
+            ticket.classList.add("active");
+            document.getElementById("selectedTime").innerText = chosenTime;
+        }, 600);
+    }
+};
 
 document.getElementById("downloadBtn").onclick = () => {
     const ticketCard = document.getElementById("ticketCard");
