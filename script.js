@@ -6,7 +6,7 @@ const questions = [
     },
     {
         question: "Qaqa boramiz?",
-        answers: ["Yana o'qishga", "Bilmasam", "Bon", "The Mart", "Gietto"],
+        answers: ["Yana o'qishga", "Bilmasam", "Bon!", "The Mart", "Gietto"],
         correct: 2
     },
     {
