@@ -39,6 +39,14 @@ const answersBox = document.getElementById("answers");
 const secretEnvelope = document.getElementById("secretEnvelope");
 
 document.getElementById("startBtn").onclick = () => {
+    // 🎵 1. Musiqani shu yerda pley qilamiz
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.3; // Fon bo'lib muloyim eshitilishi uchun
+    music.play().catch(err => console.log("Musiqa ijrosida xato:", err));
+
+    // 🌹 2. Atirgul effektini ishga tushiramiz
+    startRoseRain();
+
     intro.classList.remove("active");
     quiz.classList.add("active");
     showQuestion();
@@ -124,6 +132,33 @@ secretEnvelope.onclick = () => {
         }, 600);
     }
 };
+
+// 🌹 Atirgul yaproqlari yog'ishi funksiyasi
+function startRoseRain() {
+    const container = document.getElementById("leaves-container");
+    const petals = ["🌹", "🌸", "🍁"]; // Har xil turdagi barg/yaproqlar
+
+    setInterval(() => {
+        const petal = document.createElement("div");
+        petal.className = "petal";
+        petal.innerText = petals[Math.floor(Math.random() * petals.length)];
+
+        // Tasodifiy boshlang'ich pozitsiyalar va o'lchamlar
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.fontSize = Math.random() * 15 + 15 + "px";
+
+        // Animatsiya davomiyligi (tasodifiy sekinlikda tushadi)
+        const duration = Math.random() * 4 + 4;
+        petal.style.animationDuration = duration + "s";
+
+        container.appendChild(petal);
+
+        // Ekrandan chiqib ketgach o'chirib tashlaymiz
+        setTimeout(() => {
+            petal.remove();
+        }, duration * 1000);
+    }, 300); // Har 0.3 soniyada bitta yaproq tushadi
+}
 
 document.getElementById("downloadBtn").onclick = () => {
     const ticketCard = document.getElementById("ticketCard");

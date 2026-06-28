@@ -400,3 +400,39 @@ button {
     font-weight: 700;
     box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
 }
+
+/* 🌹 Atirgul Yaproqlari Animatsiyasi Uchun Yangi Kodlar */
+#leaves-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Elementlarni bosishga xalaqit bermasligi uchun */
+    z-index: 9999; /* Har doim hamma narsadan tepada turishi uchun */
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -20px;
+    animation: fall linear forwards;
+    opacity: 0.85;
+    user-select: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        /* O'rtada bir oz qimirlab, aylanib o'tishi uchun */
+        transform: translateY(50vh) translateX(30px) rotate(180deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(105vh) translateX(-20px) rotate(360deg);
+        opacity: 0;
+    }
+}
