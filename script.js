@@ -12,7 +12,7 @@ const questions = [
     {
         question: "Nechida ko'rishamiz?",
         answers: ["9:30", "10:30", "11:30"],
-        correct: 1
+        correct: 1 // 10:30 to'g'ri variant, qolganlari qochadi
     },
     {
         question: "Kech qolganga qanaqa chora ko'ramiz?",
@@ -27,7 +27,7 @@ const questions = [
 ];
 
 let currentQuestion = 0;
-let chosenTime = "10:30";
+let chosenTime = "10:30"; // Boshlang'ich qiymat
 let envelopeClicks = 0;
 
 const intro = document.getElementById("intro");
@@ -39,12 +39,12 @@ const answersBox = document.getElementById("answers");
 const secretEnvelope = document.getElementById("secretEnvelope");
 
 document.getElementById("startBtn").onclick = () => {
-    // 🎵 1. Musiqani shu yerda pley qilamiz
+    // 🎵 Musiqa ijro etiladi
     const music = document.getElementById("bgMusic");
-    music.volume = 0.3; // Fon bo'lib muloyim eshitilishi uchun
+    music.volume = 0.3;
     music.play().catch(err => console.log("Musiqa ijrosida xato:", err));
 
-    // 🌹 2. Atirgul effektini ishga tushiramiz
+    // 🌹 Atirgul yaproqlari yog'ishi
     startRoseRain();
 
     intro.classList.remove("active");
@@ -67,10 +67,12 @@ function showQuestion() {
         btn.style.transform = "translateX(-50%)";
         btn.style.top = (index * 75) + "px";
 
+        // To'g'ri javobga ushbu klass qo'shiladi
         if (q.correct !== -1 && q.correct === index) {
             btn.classList.add("correct");
         }
 
+        // Noto'g'ri javoblar mishka borilganda qochadi
         if (q.correct !== -1 && index !== q.correct) {
             btn.addEventListener("mouseenter", () => moveButton(btn));
             btn.addEventListener("touchstart", (e) => {
@@ -78,8 +80,10 @@ function showQuestion() {
                 moveButton(btn);
             });
         } else {
+            // To'g mezonli bosiladigan javob
             btn.onclick = () => {
-                if (q.correct === -1) {
+                // Vaqt savoliga kelganda (3-savol, indeks 2)
+                if (currentQuestion === 2) {
                     chosenTime = answer;
                 }
                 nextQuestion();
@@ -128,7 +132,13 @@ secretEnvelope.onclick = () => {
         setTimeout(() => {
             envelopeScreen.classList.remove("active");
             ticket.classList.add("active");
+
+            // Chiptaga tanlangan vaqt va aniq sanani o'rnatamiz
             document.getElementById("selectedTime").innerText = chosenTime;
+            const dateElement = document.getElementById("selectedDate");
+            if (dateElement) {
+                dateElement.innerText = "12.08.2026";
+            }
         }, 600);
     }
 };
@@ -136,28 +146,25 @@ secretEnvelope.onclick = () => {
 // 🌹 Atirgul yaproqlari yog'ishi funksiyasi
 function startRoseRain() {
     const container = document.getElementById("leaves-container");
-    const petals = ["🌹", "🌸", "🍁"]; // Har xil turdagi barg/yaproqlar
+    const petals = ["🌹", "🌸", "🍁"];
 
     setInterval(() => {
         const petal = document.createElement("div");
         petal.className = "petal";
         petal.innerText = petals[Math.floor(Math.random() * petals.length)];
 
-        // Tasodifiy boshlang'ich pozitsiyalar va o'lchamlar
         petal.style.left = Math.random() * 100 + "vw";
         petal.style.fontSize = Math.random() * 15 + 15 + "px";
 
-        // Animatsiya davomiyligi (tasodifiy sekinlikda tushadi)
         const duration = Math.random() * 4 + 4;
         petal.style.animationDuration = duration + "s";
 
         container.appendChild(petal);
 
-        // Ekrandan chiqib ketgach o'chirib tashlaymiz
         setTimeout(() => {
             petal.remove();
         }, duration * 1000);
-    }, 300); // Har 0.3 soniyada bitta yaproq tushadi
+    }, 300);
 }
 
 document.getElementById("downloadBtn").onclick = () => {
