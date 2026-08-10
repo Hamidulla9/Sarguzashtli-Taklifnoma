@@ -1,22 +1,22 @@
 const questions = [
     {
-        question: "Mash hafta ko'rishishga vaqtn bom?",
+        question: "Chorshanba ko'rishishga vaqtn bom?",
         answers: ["Ha, albatta san uchun hardoim bor", "Band bo'lishim mumkin", "Hmm bilmadim"],
         correct: 0
     },
     {
         question: "Qaqa boramiz?",
-        answers: ["Yana o'qishga", "Bilmasam", "Bon!", "The Mart", "Gietto"],
+        answers: ["Yana ishga", "Bilmasam", "Bon!", "The Mart", "Gietto"],
         correct: 2
     },
     {
         question: "Nechida ko'rishamiz?",
-        answers: ["14:30", "13:30", "12:30"],
-        correct: -1
+        answers: ["9:30", "10:30", "11:30"],
+        correct: 1
     },
     {
         question: "Kech qolganga qanaqa chora ko'ramiz?",
-        answers: ["Qatl qilamiz", "Sizlab sevishini etish", "Bumaga ga osamiz"],
+        answers: ["Qatl qilamiz", "Shart etish", "Bumaga ga osamiz"],
         correct: 1
     },
     {
@@ -27,7 +27,7 @@ const questions = [
 ];
 
 let currentQuestion = 0;
-let chosenTime = "14:30";
+let chosenTime = "10:30";
 let envelopeClicks = 0;
 
 const intro = document.getElementById("intro");
